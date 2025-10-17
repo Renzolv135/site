@@ -1,0 +1,397 @@
+    :root {
+        --brand: #d9362e;
+        /* vermelho do logo */
+        --bg: #ffffff;
+        --muted: #6b7280;
+        --radius: 1rem;
+        --gap: 1.25rem;
+        --container-width: 1200px;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        font-size: 16px;
+    }
+
+    /* Reset rápido */
+    * {
+        box-sizing: border-box
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        background: var(--bg);
+        color: #111
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block
+    }
+
+    a {
+        color: inherit
+    }
+
+    /* Layout */
+    .wrap {
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding: 2rem
+    }
+
+    /* Header (sticky, com espaço acima) */
+    .topspace {
+        height: 10.5rem;
+        background: transparent
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(6px);
+        border-radius: 0 0 0.5rem 0.5rem;
+        padding: 0.5rem 1rem;
+        box-shadow: 0 6px 20px rgba(16, 24, 40, 0.06);
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 5rem;
+        padding: 0.5rem 1rem
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem
+    }
+
+    .brand img {
+        width: 48px;
+        height: 48px
+    }
+
+    nav ul {
+        display: flex;
+        gap: 5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0
+    }
+
+    nav a {
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        font-weight: 600
+    }
+
+    .cta {
+        margin-left: auto
+    }
+
+    .btn {
+        background: var(--brand);
+        color: #fff;
+        padding: 0.6rem 1rem;
+        border-radius: 0.65rem;
+        border: 0;
+        font-weight: 700;
+        cursor: pointer
+    }
+
+    .btn.secondary {
+        background: transparent;
+        color: var(--brand);
+        border: 2px solid var(--brand)
+    }
+
+    /* Hero */
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr 520px;
+        gap: var(--gap);
+        align-items: center
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        margin: 0 0 0.5rem
+    }
+
+    .hero p {
+        color: var(--muted);
+        margin: 0 0 1rem
+    }
+
+    .actions {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap
+    }
+
+    .feature-badges {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem
+    }
+
+    .badge {
+        background: #fff;
+        border: 1px solid #eee;
+        padding: 0.6rem 0.8rem;
+        border-radius: 0.65rem;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center
+    }
+
+    /* Cards e seções */
+    section {
+        padding: 2rem 0
+    }
+
+    .grid {
+        display: grid;
+        gap: 1rem
+    }
+
+    .features {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .feature {
+        background: #fff;
+        border-radius: 0.9rem;
+        padding: 1rem;
+        border: 1px solid #f2f2f2;
+        min-height: 160px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem
+    }
+
+    /* Componentes de tela do app (imagem ao lado do texto) */
+    .app-row {
+        display: grid;
+        grid-template-columns: minmax(240px, 1fr) 360px;
+        gap: 1rem;
+        align-items: center
+    }
+
+    .app-row .text {
+        padding: 1rem
+    }
+
+    .app-screenshot {
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 6px solid rgba(217, 54, 46, 0.06);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        width: 300px;
+        height: 510px;
+    }
+
+    /* Botões grandes para usabilidade */
+    .big-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem
+    }
+
+    .big-buttons button {
+        font-size: 1.05rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        border: 2px solid rgba(0, 0, 0, 0.04);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        cursor: pointer;
+        background: #fafafa
+    }
+
+    /* Modal de detalhes (usado para Mostrar nome / Traçar rota) */
+    .modal {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(2, 6, 23, 0.55);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 200ms ease
+    }
+
+    .modal.open {
+        opacity: 1;
+        pointer-events: auto
+    }
+
+    .menu-toggle {
+        display: none;
+        padding: 1.5rem;
+        font-size: 1rem;
+        background-color: #d9362e;
+        color: #eee;
+        border-radius: 2rem;
+        border: none;
+    }
+
+    .modal .card {
+        background: #fff;
+        padding: 1.2rem;
+        border-radius: 0.8rem;
+        max-width: 520px;
+        width: 100%
+    }
+
+    /* Rotas / Ferramentas */
+    .tools {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem
+    }
+
+    .tools input,
+    .tools .search-row {
+        padding: 0.8rem;
+        border-radius: 0.6rem;
+        border: 1px solid #eee
+    }
+
+    .row {
+        display: flex;
+        gap: 0.5rem
+    }
+
+    .micro {
+        background: #7c3aed;
+        color: #000000;
+        border-radius: 0.6rem;
+        padding: 0.6rem 0.8rem;
+        font-weight: 700
+    }
+
+    /* Equipe */
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem
+    }
+
+    .member {
+        background: #fff;
+        padding: 1rem;
+        border-radius: 0.9rem;
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        border: 1px solid #f2f2f2
+    }
+
+    .member img {
+        width: 64px;
+        height: 64px;
+        border-radius: 0.6rem;
+        object-fit: cover
+    }
+
+    .member .meta {
+        display: flex;
+        flex-direction: column
+    }
+
+    .member h4 {
+        margin: 0
+    }
+
+    .member p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem
+    }
+
+    footer {
+        padding: 2rem 0;
+        text-align: center;
+        color: var(--muted)
+    }
+
+    /* Responsive */
+    @media (max-width:980px) {
+        .hero {
+            grid-template-columns: 1fr
+        }
+
+        .app-row {
+            grid-template-columns: 1fr
+        }
+
+        header {
+            border-radius: 0.6rem
+        }
+        nav{
+            gap: 2rem;
+        }
+
+        nav ul {
+            display: none;
+            flex-direction: column;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.98);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            border-radius: 0 0 0.6rem 0.6rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            padding: 1rem;
+            animation: fadeIn 0.25s ease;
+        }
+
+        nav.open ul {
+            display: flex;
+        }
+
+        .menu-toggle {
+            display: block;
+            margin-left: auto;
+        }
+
+
+        .brand img {
+            width: 44px;
+            height: 44px
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+        * {
+            transition: none !important
+        }
+    }
+
+    /* Focus states for accessibility */
+    :focus {
+        outline: 3px solid rgba(217, 54, 46, 0.22);
+        outline-offset: 3px
+    }

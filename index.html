@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FeCeap — App de Acessibilidade Audiovisual</title>
+  <link rel="shortcut icon" href="./icon.png" type="image/x-icon">
+  <meta name="description"
+    content="Landing page profissional da FeCeap: app guia para pessoas com deficiência audiovisual." />
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <a class="skip" href="#main" style="position:absolute;left:-9999px;top:auto;">Pular para o conteúdo</a>
+  <div class="topspace" aria-hidden="true"></div>
+  <header role="banner" aria-label="Barra superior">
+    <div class="wrap nav">
+      <div class="brand">
+        <img src="..//unnamed.png" alt="Logo FeCeap" />
+        <div>
+          <div style="font-weight:800">Onde Estou?</div>
+          <div style="font-size:0.8rem;color:var(--muted)">Feira de Ciências - App de Acessibilidade</div>
+        </div>
+      </div>
+ <button class="menu-toggle" aria-label="Abrir menu">MENU</button>
+
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#funcionalidades">Funcionalidades</a></li>
+        <li><a href="#imagens">Screens</a></li>
+        <li><a href="#integrantes">Integrantes</a></li>
+      </ul>
+    </nav>
+  </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap hero" role="main">
+      <div>
+        <h1>FeCeap — App de navegação e acessibilidade para pessoas audiovisualmente deficientes</h1>
+        <p>Uma experiência simples, com controles por voz, botões grandes e feedback sonoro que ajuda usuários com baixa
+          visibilidade e deficiências auditivas.</p>
+        <div class="actions">
+          <a class="btn" href="./app-release-1.apk" id= "nd"  download class="btn">Baixar Aplicativo</a>
+
+          <button class="btn secondary"
+            onclick="document.getElementById('funcionalidades').scrollIntoView({behavior:'smooth'})">Ver
+            funcionalidades</button>
+        </div>
+
+        <div class="feature-badges" aria-hidden="true">
+          <div class="badge">Botões grandes</div>
+          <div class="badge">Feedback por voz</div>
+          <div class="badge">Mapa com Pin</div>
+        </div>
+
+        <section id="sobre" style="margin-top:1.25rem">
+          <h2>Introdução</h2>
+          <p style="color:var(--muted)">O aplicativo foi pensado para oferecer uma experiência segura e independente.
+            Ele exibe sua localização em destaque, fornece informações por voz e permite traçar rotas com opções de rota
+            rápida ou segura. Todas as interfaces priorizam contraste e botões de fácil alcanço.</p>
+        </section>
+
+        <section id="funcionalidades">
+          <h2>Funcionalidades centrais</h2>
+          <div class="grid features">
+            <div class="feature">
+              <h3>Localização Atual</h3>
+              <p class="muted">O topo da tela exibe o endereço atual em negrito. Um aviso sonoro informa a localização e
+                a parte inferior mostra o mapa com um pin no local.</p>
+            </div>
+            <div class="feature">
+              <h3>Locais Próximos</h3>
+              <p class="muted"> Ao pedir, o app anuncia o local próximo categorizado (restaurantes, saúde, igrejas)
+                dentro de 1 km. O usuário pode selecionar um ponto e acionar "mostrar nome" ou "traçar rota".</p>
+            </div>
+            <div class="feature">
+              <h3>Traçar Rota</h3>
+              <p class="muted">Ferramentas para digitar ou informar por voz um destino, buscar, iniciar navegação e
+                escolher tipo de rota (rápida/segura).</p>
+            </div>
+            <div class="feature">
+              <h3>Microfone por voz</h3>
+              <p class="muted">Botões com cor roxa e emoji de microfone localizam a função facilmente. Ao clicar, o
+                usuário pode falar o nome de um dos botões para ativá-lo.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <aside aria-label="Preview do aplicativo">
+        <div class="app-screenshot" role="img" aria-label="Preview da tela inicial do app">
+          <img src="..//tela.jpg" alt="Tela inicial do app - botões grandes" />
+        </div>
+      </aside>
+    </div>
+
+    <section id="imagens" class="wrap">
+      <h2>Detalhamento das telas</h2>
+
+      <div class="app-row" style="margin-top:1rem">
+        <div class="text">
+          <h3>Localização atual</h3>
+          <p>Na Parte superior da tela tem o endereço atual da pessoa, escrito em negrito, tem o aviso sonoro informando
+            a localização com uma voz, e na paste de baixo tem o mapa mostrando exatamente onde ela está e com um pin no
+            local.</p>
+          <div class="big-buttons" aria-hidden="true">
+            <button onclick="falar()">🔊 Ouvir locação</button>
+          </div>
+        </div>
+        <div class="app-screenshot">
+          <img src="..//local.jpg" alt="Localização atual - mapa com pin" />
+        </div>
+      </div>
+
+      <div class="app-row" style="margin-top:1.25rem">
+        <div class="text">
+          <h3>Locais próximos</h3>
+          <p>Na parte superior da tela tem um botão que informa por voz o proximo local mais perto, no caso se
+            categoriza locais como igrejas, redes de alimentos como restaurantes e lanchonetes, postos de saude e muitos
+            outros tipos de locais, tendo informações em um raio de até 1 km de distancia.</p>
+          <div class="big-buttons">
+            <button onclick="announce('Proximo local: padaria, a 200 metros')">Próximo local</button>
+            <button onclick="openPlaceDetails('Padaria Central')">Abrir ponto</button>
+          </div>
+        </div>
+        <div class="app-screenshot">
+          <img src="..//proximo.jpg" alt="Lista de locais próximos" />
+        </div>
+      </div>
+
+      <div class="app-row" style="margin-top:1.25rem">
+        <div class="text">
+          <h3>Rotas e ferramentas</h3>
+          <p>No canto esquerdo superior tem o botão para abrir as ferramentas, já no canto inferior direito tem o botão
+            de centralizar com sua localização pois ao navegar no mapa que é a tela toda, ela destrava do usuario, e
+            pode mostrar a rota completa.</p>
+          <div class="tools">
+            <div class="search-row row"><input placeholder="Digite o destino" aria-label="Endereço de destino" /></div>
+            <div class="row"><button class="micro" onclick="startVoiceInput()">🎤 Falar destino</button><button
+                class="btn" onclick="announce('Iniciando navegação')">Iniciar Navegação</button></div>
+          </div>
+        </div>
+        <div class="app-screenshot">
+          <img src="..//rotas.jpg" alt="Tela de rotas" />
+        </div>
+      </div>
+
+      <div class="app-row" style="margin-top:1.25rem">
+        <div class="text">
+          <h3>Microfone e acessibilidade por voz</h3>
+          <p>Todos os botões que tem a funcionalidade de microfone tem a sua cor roxa e um emoji de microfone para
+            facilitar a localização, na tela principal, ao clicar nela, libera a ferramenta onde ao falar o nome de um
+            dos botões, abre o botão falado, uma ferramenta para facilitar ainda mais o uso🎤.</p>
+          <div class="big-buttons">
+            <button class="micro">🎤 Buscar por voz</button>
+            <button onclick="announce('Botão lido: Mostrar nome do local')">Mostrar nome</button>
+          </div>
+        </div>
+        <div class="app-screenshot">
+          <img src="..//ferra.jpg" alt="Ferramentas" />
+        </div>
+      </div>
+
+    </section>
+
+    <div id="placeModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="card">
+        <h3 id="placeTitle">Ponto</h3>
+        <p id="placeDesc">Descrição do ponto selecionado.</p>
+        <div style="display:flex;gap:0.6rem;margin-top:0.75rem">
+          <button class="btn" onclick="showName()">Mostrar nome</button>
+          <button class="btn secondary" onclick="drawRoute()">Traçar rota</button>
+          <button style="margin-left:auto" onclick="closeModal()">Fechar</button>
+        </div>
+      </div>
+    </div>
+
+    <section id="integrantes" class="wrap">
+      <h2>Integrantes</h2>
+      <p style="color:var(--muted)">Equipe da FeCeap — desenvolvedores, designers e pesquisadores.</p>
+
+      <div class="team-grid" style="margin-top:1rem">
+
+        <div class="member">
+          <img src="./renan.webp" alt="Foto do integrante 2" />
+          <div class="meta">
+            <h4>Renan da Silva</h4>
+            <p>Aplicativo/Lider</p>
+          </div>
+        </div>
+
+        <div class="member">
+          <img src="./Felipe.jpg  " alt="Foto do integrante 3" />
+          <div class="meta">
+            <h4>Felipe Alves</h4>
+            <p>Assitente / Aplicativo</p>
+          </div>
+        </div>
+
+        <div class="member">
+          <img src="./Pedro.png" alt="Foto do integrante 3" />
+          <div class="meta">
+            <h4>Pedro alves</h4>
+            <p>Site / Divulgação</p>
+          </div>
+        </div>
+
+        <div class="member">
+          <img src="./Kevin.png" alt="Foto do integrante 1" />
+          <div class="meta">
+            <h4>Kevin Bueno</h4>
+            <p>Site /Decoração</p>
+          </div>
+        </div>
+
+        <div class="member">
+          <img src="assets/matheus.jpg" alt="Foto do integrante 4" />
+          <div class="meta">
+            <h4>Matheus Evangelista</h4>
+            <p>Documentação / Plano de Negocios</p>
+          </div>
+        </div>
+
+        <div class="member">
+          <img src="assets/murilo.jpg" alt="Foto do integrante 3" />
+          <div class="meta">
+            <h4>Murilo César</h4>
+            <p>Ferramentas / IA</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <small>FeCeap — Projeto apresentado na Feira de Ciências do Ceap. &copy; <span id="year"></span></small>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
